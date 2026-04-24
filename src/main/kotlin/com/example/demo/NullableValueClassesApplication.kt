@@ -26,6 +26,13 @@ class ExampleController {
         @RequestParam(required = true) nonNullableValueClass: ValueClass,
         @RequestParam(required = false) nullableValueClass: ValueClass? = null,
     ) = "$nonNullableValueClass / $nullableValueClass"
+
+    @GetMapping("/suspending-nullable-value-classes")
+    @ResponseStatus(HttpStatus.OK)
+    suspend fun suspendingTestValueClasses(
+        @RequestParam(required = true) nonNullableValueClass: ValueClass,
+        @RequestParam(required = false) nullableValueClass: ValueClass? = null,
+    ) = "$nonNullableValueClass / $nullableValueClass"
 }
 
 @JvmInline
